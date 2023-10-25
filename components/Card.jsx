@@ -1,4 +1,4 @@
-export default function EmotionCard(props){
+export default function Card(props){
     
     
     const cardStyle = {

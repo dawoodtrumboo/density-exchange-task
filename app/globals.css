@@ -5,3 +5,52 @@
 :root{
     font-size: 15px;
 }
+
+.borderBox{
+    float:left;
+    background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 3p× 1px;
+    background-repeat: repeat-х;
+
+    background-image: linear-gradient(black 33%, rgba (255,255,255,0) 100%);
+background-position: right;
+background-size: 1px 3px;
+background-repeat: repeat-y;
+}
+
+/* Custom class for dashed border with 10px dash length and 20px spacing */
+.dashed-border {
+    border-bottom: 2px dashed transparent; /* Define a transparent dashed border */
+    border-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 14px, /* 10px for dash length */
+      #E8C480 10px, /* 10px for dash length */
+      #E8C480 33px /* 20px for spacing */
+    );
+    border-image-slice: 1;
+    padding: 40px; /* Add padding as needed */
+  }
+  
+
+ /* width */
+#custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  #custom-scrollbar::-webkit-scrollbar-track {
+    background: white; 
+  }
+   
+  /* Handle */
+  #custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(100, 63, 244, 0.5);
+    border-radius:10px;
+  }
+  
+  /* Handle on hover */
+  #custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

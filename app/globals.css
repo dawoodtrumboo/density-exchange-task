@@ -144,6 +144,7 @@ background-repeat: repeat-y;
   animation: movingAnimation 2s forwards;
 }
 
+
 @keyframes movingAnimation {
   0% {
     transform: translate(0, 0);
@@ -197,16 +198,108 @@ background-repeat: repeat-y;
   }
 }
 
-
-.scroll-point {
-  transition: opacity 0.3s ease;
-  opacity: 0.5;
+@keyframes spin {
+  20% {
+    transform: rotate(220deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
 }
 
-.scroll-point.active {
-  opacity: 1;
+@keyframes scale {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s ease-in,  scale 1s ease-in;
+  z-index: 2
 }
 
 
+.wrapperObject {
+  transform: translateX(400px);
+  
+  
+}
+.animate-section .wrapperObject{
+animation: x-axis 1s linear forwards;
+}
+
+.moveWrapper{
+  transform: translateY(800px);
+  
+}
+
+.animate-section .moveWrapper{
+  animation: y-axis 1s ease-in-out forwards;
+}
+
+@keyframes x-axis {
+
+  100% {
+    transform: translateX(-60px);
+  }
+  
+}
+
+@keyframes y-axis{
+  50% {
+    transform: translateY(1000px);
+  }
+}
 
 
+.movingCircle{
+  position: absolute;
+  top: 30%;
+  opacity: 0;
+  
+}
+
+.animate-section .movingCircle{
+  animation: rise 2s forwards 2s;
+}
+
+@keyframes rise {
+
+  0%{
+    top: 30%;
+  }
+  30%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+    top: -12%;
+  }
+  
+}
+
+/* Initial State */
+.intro2 {
+  transform: translateX(-100vw) scale(0);
+  opacity: 0;
+}
+
+/* Animation Target State */
+.animate-section .animate-in {
+  animation: animatein 0.5s ease-out forwards;
+}
+
+@keyframes animatein {
+  50% {
+    transform: translateX(-100vw) scale(0);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}

@@ -1,125 +1,139 @@
-"use client";
-import React, { useEffect } from "react";
+
+'use client';
+import {
+    AiFillFire,
+    AiOutlineClockCircle,
+    AiFillGift,
+    AiOutlinePlus,
+    AiFillSecurityScan
+  } from 'react-icons/ai';
+
+  
+import {MdNetworkCell,
+    MdNetworkWifi,
+    MdKeyboardArrowRight
+  } from 'react-icons/md'
+
+import {IoBatteryFullSharp} from 'react-icons/io5'
 import Image from "next/image";
-import {
-  AiFillFire,
-  AiOutlineClockCircle,
-  AiFillGift,
-  AiOutlinePlus,
-  AiFillSecurityScan,
-} from "react-icons/ai";
-import {
-  MdNetworkCell,
-  MdNetworkWifi,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
-import { IoBatteryFullSharp } from "react-icons/io5";
 
-export default function PhoneFrame() {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("box");
-        } else {
-          entry.target.classList.remove("box");
-        }
-      });
-    });
+import React, { useEffect} from "react";
 
-    const hiddenElements = document.querySelectorAll(".dashedCircle");
 
-    hiddenElements.forEach((el) => observer.observe(el));
 
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+export default function PhoneFrame(){
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("scale-up");
-        } else {
-          entry.target.classList.remove("scale-up");
-        }
-      });
-    });
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting ) {
+              entry.target.classList.add('box');
+            } else {
+              entry.target.classList.remove('box');
+            }
+          });
+        });
+    
+        const hiddenElements = document.querySelectorAll('.dashedCircle');
+    
+        hiddenElements.forEach((el) => observer.observe(el));
+    
+        return () => {
+          hiddenElements.forEach((el) => observer.unobserve(el));
+        };
+    
+      }, []);
 
-    const hiddenElements = document.querySelectorAll(".phone");
+      useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if(entry.isIntersecting ) {
+              entry.target.classList.add('scale-up');
+            } else {
+              entry.target.classList.remove('scale-up');
+            }
+          });
+        });
+    
+        const hiddenElements = document.querySelectorAll('.phone');
+    
+        hiddenElements.forEach((el) => observer.observe(el));
+    
+        return () => {
+          hiddenElements.forEach((el) => observer.unobserve(el));
+        };
+    
+      }, []);
 
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
-  let iconStyles = { color: "red" };
-  return (
-    <div className="w-[50%] h-[80%] flex items-center justify-center">
-      {/* Parent of Dashed Circle */}
-      <div className="absolute h-[500px] w-[500px]">
+  
+    let iconStyles = { color: "red" };
+    return (
+        <div  className="w-[50%] h-[80%] flex items-center justify-center">
+        {/* Parent of Dashed Circle */}
+      <div  className="absolute h-[500px] w-[500px]">
         {/* Dashed Circle Starts Here */}
         <div className="box dashedCircle relative border-[2px] rounded-full h-[500px] w-[500px] border-dashed border-white flex items-center justify-center">
           <div className="absolute -top-14">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={100}
-              height={10}
-              priority
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={100}
+            height={10}
+            priority
             />
           </div>
 
           <div className="absolute -right-10">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={100}
-              height={10}
-              priority
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={100}
+            height={10}
+            priority
+
             />
           </div>
 
           <div className="absolute -bottom-[50px]">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={100}
-              height={10}
-              // priority
+
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={100}
+            height={10}
+            priority
+
             />
           </div>
 
           <div className="absolute left-12 bottom-[65px] rotate-[130deg]">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={30}
-              height={10}
-              // priority
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={30}
+            height={10}
+            priority
+
             />
           </div>
 
           <div className="absolute right-12 bottom-[70px] rotate-[30deg]">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={30}
-              height={10}
-              priority
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={30}
+            height={10}
+            priority
             />
           </div>
 
           <div className="absolute right-12 top-[70px] rotate-[310deg]">
             <Image
-              src="/assets/doodle3.png"
-              alt="Doodle"
-              width={30}
-              height={10}
-              priority
+            src="/assets/doodle3.png"
+            alt="Doodle&quot;"
+            width={30}
+            height={10}
+            priority
             />
           </div>
 
@@ -168,7 +182,7 @@ export default function PhoneFrame() {
                   <div className="flex h-[20px] w-[20px] items-center justify-center overflow-hidden rounded-[4px]">
                       <Image
                         src="/assets/logo.jpg"
-                        alt="Logo"
+                        alt="Logo&quot;"
                         width={60}
                         height={60}
                         priority
@@ -232,7 +246,7 @@ export default function PhoneFrame() {
               <div className="overflow-hidden">
                   <Image
                     src="/assets/doodle2.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={20}
                     priority
@@ -254,13 +268,13 @@ export default function PhoneFrame() {
                 <div className="shadow-md rounded-[10px] overflow-hidden w-[160px]">
                   <Image
                     src="/assets/doodle1.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={30}
                     priority
                     />
                   <div className="p-4 space-y-1">
-                  <h1 className="text-[10px] font-semibold">Can you get yourself out of "anger autopilot" and think clearly again?</h1>
+                  <h1 className="text-[10px] font-semibold">Can you get yourself out of &apos;anger autopilot&apos; and think clearly again?</h1>
                   <div className="flex gap-2">
                     <span>Practice</span>
                     <div className="flex items-center gap-1">
@@ -276,7 +290,7 @@ export default function PhoneFrame() {
               <div className="overflow-hidden">
                   <Image
                     src="/assets/doodle2.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={20}
                     priority

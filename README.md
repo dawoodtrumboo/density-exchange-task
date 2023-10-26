@@ -1,4 +1,4 @@
-# Project Name
+# Density-Exchange Assignment (Desktop Only)
 
 Assignment for Frontend Internship Position at Density-Exchange
 

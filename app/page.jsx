@@ -351,13 +351,13 @@ export default function Home() {
             </svg>
           </div>
 
-          <div className="rotating-object2 absolute top-[120px] left-[300px] rotate-[150deg]">
+          <div className="rotating-object2 absolute top-[80px] left-[450px] rotate-[150deg]">
             <svg width="100" height="100">
               <path d="M0,50 a1,1 0 0,0 40,0" fill="#76C598" />
             </svg>
           </div>
 
-          <div className="moving-object absolute top-[180px] left-[330px] rotate-[150deg]">
+          <div className="moving-object absolute top-[180px] left-[520px] rotate-[150deg]">
             <div className="h-[30px] w-[30px] bg-[#EB695B] bg-opacity-20 rounded-full flex items-center justify-center">
             <div className="h-[10px] w-[10px] bg-[#EB695B] rounded-full"></div>
             </div>
@@ -828,12 +828,12 @@ the same way - and where not!
 
     <section ref={workSectionRef} className="work-section bg-[#EEEBFE] mx-[30px] my-[100px] pl-[40px] pr-[40px] py-[60px] h-[80vh] rounded-[30px] flex justify-between">
         
-        <div className="space-y-[50px] text-2xl tracking-wide">
+        <div className="space-y-[30px] text-lg tracking-wide">
           <div className="work-heading1 animate-in">
           <h1 className="text-6xl font-semibold">Work with us</h1>
           </div>
           <div className="bg-white w-[650px] rounded-[20px] overflow-hidden">
-            <div className="p-[50px] space-y-2">
+            <div className="px-[50px] py-[10px] space-y-2">
               <div className="work-image">
                 <div className="pendulum-animation">
                 <Image
@@ -852,7 +852,7 @@ the same way - and where not!
                 aHead is all about!
               </p>
             </div>
-            <div className="bg-[#FDF6F1] roundedt-[20px] p-[50px] space-y-2">
+            <div className="bg-[#FDF6F1] rounded-[20px] px-[50px] py-[20px] space-y-2">
               <h1 className="font-semibold">Product</h1>
               <p className="text-slate-600">Sure, you could spend ages reading books or
             sitting in seminars on how to become a better

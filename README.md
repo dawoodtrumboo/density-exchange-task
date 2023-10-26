@@ -19,7 +19,7 @@ This project was created as an assignment for an internship position at [Density
 
 [Density-Exchange](https://density.exchange/)  is a Cryptocurrency Derivatives Exchange based in Bangalore built for traders.Density provides an easy onramp/offramp, tax compliance, fast withdrawal so that traders can focus more on trades and leave everything else to us.
 
-![Density-Exchange Logo](url('https://media.licdn.com/dms/image/D560BAQFjbOzcFzFO1A/company-logo_200_200/0/1667044141844?e=2147483647&v=beta&t=OUgczjpjEB8e1GGvshq8geb5cWalSDs9A4J_T-vUvoI'))
+![Density-Exchange Logo](https://media.licdn.com/dms/image/D560BAQFjbOzcFzFO1A/company-logo_200_200/0/1667044141844?e=2147483647&v=beta&t=OUgczjpjEB8e1GGvshq8geb5cWalSDs9A4J_T-vUvoI)
 
 
 ## Technologies Used

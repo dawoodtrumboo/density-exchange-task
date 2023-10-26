@@ -72,30 +72,7 @@ background-repeat: repeat-y;
   animation: scaleUpAnimation 1s forwards;
   }
   
-  @keyframes scaleUpAnimation {
-    0% {
-      scale: 30%;
-      rotate: 8deg;
-      transform: translate(-80px, -150px);
-    }
-    100% {
-     scale: 100%;
-     rotate: 0deg;
-      transform: translate(-90px, -30px);
-    }
-  }
-
-  @keyframes rotateAnimation {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(370deg); /* Rotate to 370 degrees halfway through */
-    }
-    100% {
-      transform: rotate(360deg); /* Rotate back to 360 degrees at the end */
-    }
-  }
+  
   
   .box {
     animation: rotateAnimation 2s forwards;
@@ -109,22 +86,295 @@ background-repeat: repeat-y;
   transform-origin: center;
 }
 
-@keyframes rAnimation {
-  0% {
-    transform: rotate(150deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(150deg);
-  }
+
+
+/* Moving object */
+.moving-object {
+  animation: movingAnimation 2s forwards;
 }
+
+
+
+/* Scale object */
+.scale-object {
+  animation: scaleAnimation 2s forwards;
+  transform-origin: center;
+}
+
+
+
+.text-slide-in {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-slide-in p, .text-slide-in h1 {
+  position: relative;
+  left: -100%;
+  animation: slideIn 1s ease-out forwards;
+}
+
+.animate-spin {
+  animation: spin 1s ease-in,  scale 1s ease-in;
+  z-index: 2
+}
+
+
+.wrapperObject {
+  transform: translateX(400px);
+  
+  
+}
+.animate-section .wrapperObject{
+animation: x-axis 1s linear forwards;
+}
+
+.moveWrapper{
+  transform: translateY(800px);
+  
+}
+
+.animate-section .moveWrapper{
+  animation: y-axis 1s ease-in-out forwards;
+}
+
+
+.movingCircle{
+  position: absolute;
+  top: 30%;
+  opacity: 0;
+  
+}
+
+.animate-section .movingCircle{
+  animation: rise 2s forwards 2s;
+}
+
+
+/* Initial State */
+.intro2 {
+  transform: translateX(-25vw) scale(0);
+  opacity: 0;
+}
+
+/* Animation Target State */
+.animate-section .animate-in {
+  animation: animatein .6s ease-in-out forwards;
+}
+
+
+.doodlePath{
+ 
+  animation: move 1s ease-out forwards;
+}
+.doodle{
+  transform: translate(1000px)
+  rotate(-50deg);
+  top: 30px;
+  position: absolute;
+}
+
+
+
+.doodle2{
+  transform: translate(700px)
+  rotate(-50deg);
+  position: absolute;
+}
+
+
+
+
+.glowing {
+  color: black;
+  /* box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6442EF, 0 0 20px #6442EF, 0 0 25px #6442EF, 0 0 30px #6442EF, 0 0 35px #6442EF; */
+}
+
+.skill-section svg{
+  animation: scale 1s ease-out;
+}
+
+
+.skill-section .dashed-border h1{
+  animation: scale 1s ease-in;
+}
+
+
+
 
 /* Rotating object 2 */
 .rotating-object2 {
   animation: rAnimation2 2s forwards;
   transform-origin: center;
+}
+
+
+.skill-section .dotBox{
+  animation: scaleNopac 2s ease;
+}
+
+.autograph__path {
+  opacity: 0;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  .animated & {
+    opacity: 1;
+    animation-name: line;
+  }
+}
+
+.test-section .test-button{
+  animation: scaleNopac 1s ease forwards
+}
+
+.work-heading1{
+  transform: translateX(-55vh);
+}
+
+.work-heading2{
+  transform: translateX(400px);
+}
+.work-section .animate-in{
+   animation: animatein2 .5s ease-in-out forwards;
+}
+
+.work-section .animate-in2{
+   animation: animatein3 1s ease-in-out forwards;
+}
+
+.work-image {
+  position: relative;
+  z-index: 10;
+  height: 100px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.work-section .pendulum-animation {
+  z-index: 30;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  transform-origin: top center;
+  animation: pendulum 1s ;
+}
+
+.vacancy-heading{
+  transform: translateX(-65vh);
+}
+
+.vacancy-section .animate-in{
+  animation: animatein2 .8s ease-in-out forwards;
+}
+
+.vacancy-box > div {
+  height: 180px;
+  overflow: hidden;
+  transition: height 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.vacancy-box > div:hover {
+  animation: heightIncrease .5s ease-in-out forwards;
+}
+.vacancy-box > div:not(:hover){
+  animation: heightDecrease .5s ease-in-out forwards;
+}
+
+
+
+
+.vacancy-btn {
+  width: 110px;
+  transform: scale(0);
+  transform-origin: center center;
+  transition: transform 0.4s ease-in-out;
+}
+
+.v-box-1:hover .vacancy-btn {
+  animation: btnScaleIn 0.4s ease-in-out forwards;
+}
+
+.v-box-2:hover .vacancy-btn {
+  animation: btnScaleIn 0.4s ease-in-out forwards;
+}
+
+.v-box-3:hover .vacancy-btn {
+  animation: btnScaleIn 0.4s ease-in-out forwards;
+}
+
+/* Add a separate animation for scaling down when hovering out */
+.v-box-1:not(:hover) .vacancy-btn {
+  animation: btnScaleOut 0.4s ease-in-out forwards;
+}
+
+.v-box-2:not(:hover) .vacancy-btn {
+  animation: btnScaleOut 0.4s ease-in-out forwards;
+}
+
+.v-box-3:not(:hover) .vacancy-btn {
+  animation: btnScaleOut 0.4s ease-in-out forwards;
+}
+
+
+.custom-cursor {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none; /* This ensures the custom cursor doesn't interfere with clicks. */
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+@keyframes pendulum {
+  0%, 100% {
+    transform:  rotate(0deg);
+  }
+  25% {
+    transform:  rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform:  rotate(-10deg);
+  }
+}
+
+@keyframes animatein2{
+    0% {
+    transform: translateX(-55vw) scale(.2);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes animatein3 {
+    0% {
+    transform: translateX(400px) scale(.2);
+    opacity: 0.2;
+  }
+
+  50%{
+    transform: translateX(-20px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) 
+    
+  }
+}
+
+@keyframes line {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes rAnimation2 {
@@ -137,11 +387,6 @@ background-repeat: repeat-y;
   100% {
     transform: rotate(150deg);
   }
-}
-
-/* Moving object */
-.moving-object {
-  animation: movingAnimation 2s forwards;
 }
 
 
@@ -157,11 +402,6 @@ background-repeat: repeat-y;
   }
 }
 
-/* Scale object */
-.scale-object {
-  animation: scaleAnimation 2s forwards;
-  transform-origin: center;
-}
 
 @keyframes scaleAnimation {
   0% {
@@ -176,16 +416,6 @@ background-repeat: repeat-y;
 }
 
 
-.text-slide-in {
-  position: relative;
-  overflow: hidden;
-}
-
-.text-slide-in p, .text-slide-in h1 {
-  position: relative;
-  left: -100%;
-  animation: slideIn 1s ease-out forwards;
-}
 
 @keyframes slideIn {
   0% {
@@ -216,29 +446,7 @@ background-repeat: repeat-y;
   }
 }
 
-.animate-spin {
-  animation: spin 1s ease-in,  scale 1s ease-in;
-  z-index: 2
-}
 
-
-.wrapperObject {
-  transform: translateX(400px);
-  
-  
-}
-.animate-section .wrapperObject{
-animation: x-axis 1s linear forwards;
-}
-
-.moveWrapper{
-  transform: translateY(800px);
-  
-}
-
-.animate-section .moveWrapper{
-  animation: y-axis 1s ease-in-out forwards;
-}
 
 @keyframes x-axis {
 
@@ -255,17 +463,6 @@ animation: x-axis 1s linear forwards;
 }
 
 
-.movingCircle{
-  position: absolute;
-  top: 30%;
-  opacity: 0;
-  
-}
-
-.animate-section .movingCircle{
-  animation: rise 2s forwards 2s;
-}
-
 @keyframes rise {
 
   0%{
@@ -281,20 +478,10 @@ animation: x-axis 1s linear forwards;
   
 }
 
-/* Initial State */
-.intro2 {
-  transform: translateX(-100vw) scale(0);
-  opacity: 0;
-}
-
-/* Animation Target State */
-.animate-section .animate-in {
-  animation: animatein 0.5s ease-out forwards;
-}
 
 @keyframes animatein {
   50% {
-    transform: translateX(-100vw) scale(0);
+    transform: translateX(-25vw) scale(0);
     opacity: 0.2;
   }
 
@@ -302,17 +489,6 @@ animation: x-axis 1s linear forwards;
     transform: translateX(0) scale(1);
     opacity: 1;
   }
-}
-
-.doodlePath{
- 
-  animation: move 2s ease-out forwards;
-}
-.doodle{
-  transform: translate(1000px)
-  rotate(-50deg);
-  top: 30px;
-  position: absolute;
 }
 
 
@@ -330,3 +506,95 @@ animation: x-axis 1s linear forwards;
 
   }
 }
+
+
+@keyframes scaleUpAnimation {
+  0% {
+    scale: 30%;
+    rotate: 8deg;
+    transform: translate(-80px, -150px);
+  }
+  100% {
+   scale: 100%;
+   rotate: 0deg;
+    transform: translate(-90px, -30px);
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(370deg); /* Rotate to 370 degrees halfway through */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate back to 360 degrees at the end */
+  }
+}
+
+
+@keyframes rAnimation {
+  0% {
+    transform: rotate(150deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}
+
+
+@keyframes scaleNopac {
+  0%{
+    opacity: 20%;
+    scale:5%;
+  }
+  100%{
+    opacity: 100%;
+    scale: 100%;
+  }
+}
+@keyframes heightIncrease {
+  0% {
+    height: 180px;
+  }
+  100% {
+    height: 215px;
+    background-color: #fff6c6;
+  }
+}
+@keyframes heightDecrease {
+  0% {
+    height: 215px;
+  }
+  100% {
+    height: 180px;
+    background-color: #FEFBEC;
+  }
+}
+
+@keyframes btnScaleIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btnScaleOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+/* animatein */
+
+
+
+

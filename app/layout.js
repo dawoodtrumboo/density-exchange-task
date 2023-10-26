@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import AnimatedCursor from "react-animated-cursor"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,6 +15,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+      <AnimatedCursor
+      innerSize={8}
+      // outerSize={8}
+      color='00, 00, 00'
+      outerAlpha={0}
+      innerScale={0.7}
+      outerScale={0}
+      clickables={[
+        'a',
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="submit"]',
+        'input[type="image"]',
+        'label[for]',
+        'select',
+        'textarea',
+        'button',
+        '.link'
+      ]}
+    />
         <div>
         <div className='fixed w-full h-[80px] z-30'>
           <Navbar/>

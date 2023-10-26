@@ -14,7 +14,8 @@ import CardSection from "@/components/CardSection";
 import ScrollSection from "@/sections/ScrollSection";
 
 import Vacancies from "@/sections/Vacancies";
-import { useEffect,useRef } from "react";
+import { useEffect,useRef, useState } from "react";
+import Signature from "@/components/Signature";
 
 
 const poppins = Poppins({
@@ -25,6 +26,11 @@ const poppins = Poppins({
 
 export default function Home() {
   const sectionRef = useRef(null);
+  const skillRef = useRef(null);
+  const workSectionRef = useRef(null);
+  const vacancyRef = useRef(null);
+  const testRef = useRef(null);
+  const [currentGlow, setCurrentGlow] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,7 +60,113 @@ export default function Home() {
   }, []);
 
 
-  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("skill-section");
+        } else {
+          entry.target.classList.remove("skill-section");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1, // Adjust if needed
+      }
+    );
+
+    if (skillRef.current) {
+      observer.observe(skillRef.current);
+    }
+
+    return () => {
+      if (skillRef.current) {
+        observer.unobserve(skillRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("test-section");
+        } else {
+          entry.target.classList.remove("test-section");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1, // Adjust if needed
+      }
+    );
+
+    if (testRef.current) {
+      observer.observe(testRef.current);
+    }
+
+    return () => {
+      if (testRef.current) {
+        observer.unobserve(testRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("work-section");
+        } else {
+          entry.target.classList.remove("work-section");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1, // Adjust if needed
+      }
+    );
+
+    if (workSectionRef.current) {
+      observer.observe(workSectionRef.current);
+    }
+
+    return () => {
+      if (workSectionRef.current) {
+        observer.unobserve(workSectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("vacancy-section");
+        } else {
+          entry.target.classList.remove("vacancy-section");
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1, // Adjust if needed
+      }
+    );
+
+    if (vacancyRef.current) {
+      observer.observe(vacancyRef.current);
+    }
+
+    return () => {
+      if (vacancyRef.current) {
+        observer.unobserve(vacancyRef.current);
+      }
+    };
+  }, []);
 
 
   useEffect(() => {
@@ -99,6 +211,89 @@ export default function Home() {
     return () => {
       hiddenElements.forEach((el) => observer.unobserve(el));
     };
+
+  }, []);
+
+
+  useEffect(() => {
+    const points = document.querySelectorAll('.dot');
+    const lines = document.querySelector('.line');
+  
+    const glowToggle = () => {
+      points.forEach((point, index) => {
+        point.classList.remove('glowing');
+        if (index === currentGlow) {
+          point.classList.add('glowing');
+        }
+      });
+  
+      if (currentGlow === 0) {
+        lines.classList.remove('glowing');
+      } else {
+        lines.classList.add('glowing');
+      }
+    };
+  
+    glowToggle();  // Call glowToggle here
+  
+    const handleScroll = (e) => {
+      if (e.deltaY > 0) {
+        setCurrentGlow(prev => Math.min(prev + 1, points.length - 1));
+      } else {
+        setCurrentGlow(prev => Math.max(prev - 1, 0));
+      }
+    };
+  
+    const container = document.querySelector('.scroll-box');
+    if (container) {
+      container.addEventListener('wheel', handleScroll);
+  
+      return () => {
+        container.removeEventListener('wheel', handleScroll);
+      };
+    }
+  }, [currentGlow]);
+
+
+  const pathRef = useRef(null);
+  const doodleRef = useRef(null);
+  const containerRef = useRef(null);
+  
+  useEffect(() => {
+    const path = pathRef.current;
+    const doodle = doodleRef.current;
+    const container = containerRef.current;
+    
+    let observer;
+
+    function step(timestamp, start) {
+      const elapsed = timestamp - start;
+      const pathLength = path.getTotalLength();
+
+      // Stop the animation after 4000ms
+      if (elapsed > 1000) return;
+
+      const offset = pathLength - ((elapsed / 1000) * pathLength);
+      const position = path.getPointAtLength(offset);
+
+      doodle.style.left = `${position.x}px`;
+      doodle.style.top = `${position.y}px`;
+
+      requestAnimationFrame(newTimestamp => step(newTimestamp, start));
+    }
+
+    function handleIntersection(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          requestAnimationFrame(timestamp => step(timestamp, timestamp));
+        }
+      });
+    }
+
+    observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 });
+    observer.observe(container);
+
+    return () => observer.disconnect();
 
   }, []);
 
@@ -330,7 +525,125 @@ export default function Home() {
 
 
     {/*-------------------- SCROLL SECTION ------------------------------- */}
-   <ScrollSection/>
+    <section >
+      <div ref={containerRef} className="flex w-full relative">
+          <div className="mx-[100px] hidden1 text-slide-in">
+          <p className="text-2xl">Wrong with self-improvement & how we're fixing it.</p>
+          <h1 className="text-6xl font-semibold">Self-improvement. Ugh.</h1>
+          </div>
+          <svg width="500" height="400" className="absolute -top-[50px right-[80px]">
+        <path ref={pathRef} id="path" d="M44,10 C132,200 296,36 458,150" stroke="none" fill="none"/>
+      </svg>
+          <div  ref={doodleRef} id="doodlee" className="doodlePath2 doodle2   ">
+        <Image
+              src="/assets/doodle3.png"
+              alt="Logo"
+              width={80}
+              height={10}
+              priority
+              />
+        </div>
+    </div>
+
+
+        <div className="scroll-box h-[65vh] w-full flex mt-[50px] my-[100px] overflow-y-scroll">
+          <div className="mx-[300px] pt-10">
+            <div className="line  bg-[#6442EF] w-[3px] h-[800px] text-gray-400 relative text-xl">
+
+              {/* point 1 */}
+             <div className="dot absolute -top-[10px] -left-[13px] flex gap-5 ">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+
+             {/* point 2 */}
+             <div className="dot absolute top-[140px] -left-[13px] flex gap-5">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+
+             {/* point 3 */}
+             <div className="dot absolute top-[300px] -left-[13px] flex gap-5">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+
+             {/* point 4 */}
+             <div className="dot absolute top-[460px] -left-[13px] flex gap-5">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+
+             {/* point 5 */}
+             <div className="dot absolute top-[620px] -left-[13px] flex gap-5">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+
+               {/* point 6 */}
+               <div className="dot absolute top-[780px] -left-[13px] flex gap-5">
+              <div className=" h-[30px] w-[30px] rounded-full 
+                bg-[#6442EF] bg-opacity-20 flex items-center justify-center">
+                  <div className="h-[15px] w-[15px] rounded-full 
+                bg-[#6442EF] flex items-center justify-center"></div>
+                </div>
+                <div className="w-[700px] space-y-2">
+                  <h1 className="text-2xl font-semibold">Lorem Ipsum</h1>
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at
+                  </p>
+                </div>
+             </div>
+            
+            </div>
+          </div>
+        </div>
+        </section>
    
       
 
@@ -357,7 +670,7 @@ export default function Home() {
 
 
     {/*-------------------- RATE SKILL SECTION ------------------------------- */}
-    <section className="bg-[#EDF7FE] mx-[30px] my-[100px] py-[80px] pl-[40px] h-[80vh] rounded-[30px] flex items-center flex-col">
+    <section ref={skillRef} className="skill-section bg-[#EDF7FE] mx-[30px] my-[100px] py-[80px] pl-[40px] h-[80vh] rounded-[30px] flex items-center flex-col">
 
     <div className="text-center space-y-2">
       <p className="text-xl">Let your friends,family, and co-workers (anonymously) rate your social skills.</p>
@@ -384,9 +697,9 @@ export default function Home() {
             <circle cx="100" cy="100" r="60" fill="#D68E4C" />
             <text x="100" y="110" font-size="36" text-anchor="middle" fill="#fff">1</text>
         </svg>
-        <div className=" w-[300px]">
+        <h1 className=" w-[300px]">
         Answer questions on your social skills
-        </div>
+        </h1>
         </div>
 
          {/* Circle 2 */}
@@ -407,9 +720,9 @@ export default function Home() {
             <circle cx="100" cy="100" r="60" fill="#D68E4C" />
             <text x="100" y="110" font-size="36" text-anchor="middle" fill="#fff">2</text>
         </svg>
-        <div className=" w-[300px]">
+        <h1 className=" w-[300px]">
         Let others anonymously answer the same questions about you
-        </div>
+        </h1>
         </div>
 
         {/* Circle 3 */}
@@ -430,10 +743,10 @@ export default function Home() {
             <circle cx="100" cy="100" r="60" fill="#D68E4C" />
             <text x="100" y="110" font-size="36" text-anchor="middle" fill="#fff">3</text>
         </svg>
-        <div className=" w-[300px]">
+        <h1 className=" w-[300px]">
         Find out where you and others see things
 the same way - and where not!
-        </div>
+        </h1>
         </div>
       </div>
 
@@ -443,9 +756,9 @@ the same way - and where not!
      shadow-slate-200 flex items-center justify-center">
 
         <div className="relative border-b-[2px] border-gray-200 w-[90%] text-white">
-
+          <div>
           {/* Dot 1 */}
-          <div className="absolute -top-[64px] -left-12 flex flex-col items-end gap-3">
+          <div className="dotBox dotBox-1 absolute -top-[64px] -left-12 flex flex-col items-end gap-3">
             <div className="bg-[#6541EE] rounded-md px-4 py-2">
               You
             </div>
@@ -453,9 +766,9 @@ the same way - and where not!
 
             </div>
           </div>
-
+          
            {/* Dot 2 */}
-           <div className="absolute -top-[14px] left-[25%] flex flex-col items-start gap-3">
+           <div className="dotBox dotBox-2 absolute -top-[14px] left-[25%] flex flex-col items-start gap-3">
            <div className="w-[30px] h-[30px] bg-[#40C3FC] rounded-full "></div>
             <div className="bg-[#40C3FC] rounded-md px-4 py-2">
               Anonymonos 1
@@ -464,7 +777,7 @@ the same way - and where not!
           </div>
 
            {/* Dot 3 */}
-           <div className="absolute -top-[64px] left-[62%] flex flex-col items-start gap-3">
+           <div className="dotBox dotBox-3 absolute -top-[64px] left-[62%] flex flex-col items-start gap-3">
             <div className="bg-[#FDB338] rounded-md px-4 py-2">
               Anonymonos 2
             </div>
@@ -474,12 +787,13 @@ the same way - and where not!
           </div>
 
           {/* Dot 4 */}
-          <div className="absolute -top-[14px] left-[96%] flex flex-col items-start gap-3">
+          <div className="dotBox dotBox-4 absolute -top-[14px] left-[96%] flex flex-col items-start gap-3">
            <div className="w-[30px] h-[30px] bg-[#58C897] rounded-full "></div>
             <div className="bg-[#58C897] rounded-md px-4 py-2 w-[138px]">
               Anonymonos 3
             </div>
             
+          </div>
           </div>
 
         </div>
@@ -488,18 +802,23 @@ the same way - and where not!
 </section>
     {/*-------------------- TEST SECTION ------------------------------- */}
 
-      <section className="h-[85vh] mx-[30px] flex flex-col justify-center items-center text-center gap-10">
+      <section ref={testRef} className="test-section h-[85vh] mx-[30px] flex flex-col justify-center items-center text-center">
         <div className="w-[55%] space-y-3">
           <p className="text-xl text-slate-800">We take privacy seriously</p>
           <h1 className="text-4xl font-semibold">Before you get started</h1>
           <p className="text-2xl text-slate-500">"We won't share your answers with anyone and won't ever tell
           you which friends said what about you)"</p>
         </div>
-        <p className="text-xl">with love, Team ahead</p>
+        <div className="flex items-center justify-center pl-20">
+        <p className="text-xl">with love,</p>
+          <Signature/>
+        </div>
         <div className="space-y-3">
+          <div className="test-button">
         <CustomButton
           name="Start a test"
           />
+          </div>
         <p className="text-slate-500">Take only 5 minutes</p>
         </div>
 
@@ -507,14 +826,24 @@ the same way - and where not!
 
     {/*-------------------- WORK WITH US SECTION ------------------------------- */}
 
-    <section className="bg-[#EEEBFE] mx-[30px] my-[100px] pl-[40px] pr-[40px] py-[60px] h-[80vh] rounded-[30px] flex justify-between">
+    <section ref={workSectionRef} className="work-section bg-[#EEEBFE] mx-[30px] my-[100px] pl-[40px] pr-[40px] py-[60px] h-[80vh] rounded-[30px] flex justify-between">
         
         <div className="space-y-[50px] text-2xl tracking-wide">
+          <div className="work-heading1 animate-in">
           <h1 className="text-6xl font-semibold">Work with us</h1>
+          </div>
           <div className="bg-white w-[650px] rounded-[20px] overflow-hidden">
             <div className="p-[50px] space-y-2">
-              <div>
-                {/* image */}
+              <div className="work-image">
+                <div className="pendulum-animation">
+                <Image
+                src="/assets/doodle3.png"
+                alt="Logo"
+                width={80}
+                height={10}
+                priority
+                />
+                </div>
               </div>
               <h1 className="font-semibold">About</h1>
               <p className="text-slate-600">At ahead our goal is to make self-
@@ -533,7 +862,7 @@ the same way - and where not!
         </div>
         <div>
         
-        <div className={poppins.className}  >
+        <div className={`work-heading2 animate-in2 ${poppins.className}`}  >
           <h1 className="text-end text-6xl mb-[20px] mr-[50px] font-semibold text-[#643FF4] font-">ahead</h1>
           </div>
           <div className="h-[90%] flex flex-col gap-8 pr-[50px] overflow-y-scroll" id="custom-scrollbar">
@@ -577,7 +906,57 @@ the same way - and where not!
     {/*-------------------- VACANCIES SECTION ------------------------------- */}
 
 
-     <Vacancies/>
+    <section ref={vacancyRef} className="vacancy-section mx-[100px]">
+      <div className="vacancy-heading animate-in">
+    <h1 className="text-6xl font-semibold my-[50px]">Open vancancies</h1>
+    </div>
+    <div className="vacancy-box flex justify-between gap-10 text-sm">
+      {/* Vacany Card 1 */}
+      <div className="v-box-1 bg-[#FEFBEC] p-10 rounded-[20px] space-y-2 ">
+      <h1 className="text-lg font-semibold">Senior Full-Stack Engineer</h1>
+        <ul className="text-slate-700 list-disc ml-5 space-y-2">
+          <li>Full-time position</li>
+          <li>Berlin or remote</li>
+          <li>65-85k, 0.5-1.5% equity share options</li>
+        </ul>
+        <div className="vacancy-btn">
+          <CustomButton 
+          name ="See details"
+          />
+        </div>
+      </div>
+
+      {/* Vacany Card 2 */}
+      <div className="v-box-2 bg-[#FEFBEC] p-10 rounded-[20px] space-y-3">
+      <h1 className="text-lg font-semibold">Senior Full-Stack Engineer</h1>
+        <ul className="text-slate-700 list-disc ml-5 space-y-2">
+          <li>Full-time position</li>
+          <li>Berlin or remote</li>
+          <li>65-85k, 0.5-1.5% equity share options</li>
+        </ul>
+        <div className="vacancy-btn">
+          <CustomButton 
+          name ="See details"
+          />
+        </div>
+      </div>
+
+      {/* Vacany Card 3 */}
+      <div className="v-box-3 bg-[#FEFBEC] p-10 rounded-[20px] space-y-2">
+      <h1 className="text-lg font-semibold">Senior Full-Stack Engineer</h1>
+        <ul className="text-slate-700 list-disc ml-5 space-y-2">
+          <li>Full-time position</li>
+          <li>Berlin or remote</li>
+          <li>65-85k, 0.5-1.5% equity share options</li>
+        </ul>
+        <div className="vacancy-btn">
+          <CustomButton 
+          name ="See details"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 
       <hr className="my-[80px] border-[1px]" />
 

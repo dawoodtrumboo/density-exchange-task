@@ -11,7 +11,7 @@ Assignment for Frontend Internship Position at Density-Exchange
 
 ## Project Overview
 
-This project was created as an assignment for an internship position at [Density-Exchange](https://density.exchange/). It is a web application built using Next.js, Tailwind CSS, and React Icons. The project incorporates the "gasp" library for scroll animations to enhance the user experience.
+This project was created as an assignment for an internship position at [Density-Exchange](https://density.exchange/). It is a web application (Desktop only) built using Next.js, Tailwind CSS, and React Icons. The project incorporates the "gasp" library for scroll animations to enhance the user experience.
 
 ### About Density-Exchange
 

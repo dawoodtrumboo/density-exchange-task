@@ -1,7 +1,11 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "react/no-unescaped-entities": "off"
-    
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [">", "}", "&quot;"] // Allow double quotes using the HTML entity
+      }
+    ]
   }
 }

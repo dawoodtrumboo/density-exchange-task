@@ -103,7 +103,7 @@ export default function PhoneFrame(){
             alt="Doodle&quot;"
             width={100}
             height={10}
-            // priority
+            priority
             />
 
           </div>
@@ -114,7 +114,7 @@ export default function PhoneFrame(){
             alt="Doodle&quot;"
             width={30}
             height={10}
-            // priority
+            priority
             />
 
           </div>

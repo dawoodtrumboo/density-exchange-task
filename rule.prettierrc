@@ -1,0 +1,5 @@
+{
+  "singleQuote": true,
+  "semi": true
+  // Add any other Prettier options you prefer
+}

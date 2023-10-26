@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name
+
+Assignment for Internship Position at Density-Exchange
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Project Overview
+
+This project was created as an assignment for an internship position at [Density-Exchange](https://density.exchange/). It is a web application built using Next.js, Tailwind CSS, and React Icons. The project incorporates the "gasp" library for scroll animations to enhance the user experience.
+
+### About Density-Exchange
+
+[Density-Exchange](https://density.exchange/)  is a Cryptocurrency Derivatives Exchange based in Bangalore built for traders.Density provides an easy onramp/offramp, tax compliance, fast withdrawal so that traders can focus more on trades and leave everything else to us.
+
+![Density-Exchange Logo](url('https://media.licdn.com/dms/image/D560BAQFjbOzcFzFO1A/company-logo_200_200/0/1667044141844?e=2147483647&v=beta&t=OUgczjpjEB8e1GGvshq8geb5cWalSDs9A4J_T-vUvoI'))
+
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/): A React framework for building fast and scalable web applications.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for designing responsive and efficient web interfaces.
+- [gasp](https://github.com/oliviertassinari/gasp): A library for scroll animations to create engaging user experiences.
+- [React Icons](https://react-icons.github.io/react-icons/): A library that provides a set of high-quality icons for React applications.
 
 ## Getting Started
 
-First, run the development server:
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/your-repo.git](https://github.com/dawoodtrumboo/density-exchange-task.git
+
+# Change to the project directory
+cd density-exchange-task
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,149 +1,131 @@
 "use client";
-import {
-    AiFillFire,
-    AiOutlineClockCircle,
-    AiFillGift,
-    AiOutlinePlus,
-    AiFillSecurityScan
-  } from 'react-icons/ai';
-
-  
-import {MdNetworkCell,
-    MdNetworkWifi,
-    MdKeyboardArrowRight
-  } from 'react-icons/md'
-
-import {IoBatteryFullSharp} from 'react-icons/io5'
+import React, { useEffect } from "react";
 import Image from "next/image";
+import {
+  AiFillFire,
+  AiOutlineClockCircle,
+  AiFillGift,
+  AiOutlinePlus,
+  AiFillSecurityScan,
+} from "react-icons/ai";
+import {
+  MdNetworkCell,
+  MdNetworkWifi,
+  MdKeyboardArrowRight,
+} from "react-icons/md";
+import { IoBatteryFullSharp } from "react-icons/io5";
 
-import React, { useEffect} from "react";
+export default function PhoneFrame() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("box");
+        } else {
+          entry.target.classList.remove("box");
+        }
+      });
+    });
 
+    const hiddenElements = document.querySelectorAll(".dashedCircle");
 
+    hiddenElements.forEach((el) => observer.observe(el));
 
-export default function PhoneFrame(){
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting ) {
-              entry.target.classList.add('box');
-            } else {
-              entry.target.classList.remove('box');
-            }
-          });
-        });
-    
-        const hiddenElements = document.querySelectorAll('.dashedCircle');
-    
-        hiddenElements.forEach((el) => observer.observe(el));
-    
-        return () => {
-          hiddenElements.forEach((el) => observer.unobserve(el));
-        };
-    
-      }, []);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("scale-up");
+        } else {
+          entry.target.classList.remove("scale-up");
+        }
+      });
+    });
 
-      useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting ) {
-              entry.target.classList.add('scale-up');
-            } else {
-              entry.target.classList.remove('scale-up');
-            }
-          });
-        });
-    
-        const hiddenElements = document.querySelectorAll('.phone');
-    
-        hiddenElements.forEach((el) => observer.observe(el));
-    
-        return () => {
-          hiddenElements.forEach((el) => observer.unobserve(el));
-        };
-    
-      }, []);
+    const hiddenElements = document.querySelectorAll(".phone");
 
-  
-    let iconStyles = { color: "red" };
-    return (
-        <div  className=" w-[50%] h-[80%] flex items-center justify-center">
-        {/* Parent of Dashed Circle */}
-      <div  className="absolute h-[500px] w-[500px]">
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
+  let iconStyles = { color: "red" };
+  return (
+    <div className="w-[50%] h-[80%] flex items-center justify-center">
+      {/* Parent of Dashed Circle */}
+      <div className="absolute h-[500px] w-[500px]">
         {/* Dashed Circle Starts Here */}
-      <div className="box dashedCircle relative border-[2px] rounded-full h-[500px] w-[500px]
-       border-dashed border-white flex items-center justify-center">
-      
+        <div className="box dashedCircle relative border-[2px] rounded-full h-[500px] w-[500px] border-dashed border-white flex items-center justify-center">
           <div className="absolute -top-14">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={100}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={100}
+              height={10}
+              priority
             />
-
           </div>
 
           <div className="absolute -right-10">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={100}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={100}
+              height={10}
+              priority
             />
-
           </div>
 
           <div className="absolute -bottom-[50px]">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={100}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={100}
+              height={10}
+              // priority
             />
-
           </div>
 
           <div className="absolute left-12 bottom-[65px] rotate-[130deg]">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={30}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={30}
+              height={10}
+              // priority
             />
-
           </div>
 
           <div className="absolute right-12 bottom-[70px] rotate-[30deg]">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={30}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={30}
+              height={10}
+              priority
             />
-
           </div>
 
           <div className="absolute right-12 top-[70px] rotate-[310deg]">
             <Image
-            src="/assets/doodle3.png"
-            alt="Doodle"
-            width={30}
-            height={10}
-            priority
+              src="/assets/doodle3.png"
+              alt="Doodle"
+              width={30}
+              height={10}
+              priority
             />
-
           </div>
-        
-        <div className="absolute bg-[#DAD3F5] h-[350px] w-[350px] rounded-full">
+
+          <div className="absolute bg-[#DAD3F5] h-[350px] w-[350px] rounded-full"></div>
         </div>
-        </div>
-        </div>
+      </div>
         {/* Mobile Frame Starts Here */}
         <div className=" relative space-y-8 z-10 ">
           <div className="scale-up phone h-[370px] w-[190px] overflow-auto flex flex-col justify-between text-[8px] rounded-[20px] border-[5px] border-slate-700 bg-white p-[5px]">

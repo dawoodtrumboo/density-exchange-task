@@ -7,9 +7,7 @@ Assignment for Frontend Internship Position at Density-Exchange
 - [Project Overview](#project-overview)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Overview
 

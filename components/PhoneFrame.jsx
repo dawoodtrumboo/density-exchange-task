@@ -278,7 +278,7 @@ export default function PhoneFrame(){
                     priority
                     />
                   <div className="p-4 space-y-1">
-                  <h1 className="text-[10px] font-semibold">Can you get yourself out of "anger autopilot" and think clearly again?</h1>
+                  <h1 className="text-[10px] font-semibold">Can you get yourself out of &apos;anger autopilot&apos; and think clearly again?</h1>
                   <div className="flex gap-2">
                     <span>Practice</span>
                     <div className="flex items-center gap-1">

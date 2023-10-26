@@ -1,6 +1,6 @@
 # Project Name
 
-Assignment for Internship Position at Density-Exchange
+Assignment for Frontend Internship Position at Density-Exchange
 
 ## Table of Contents
 

@@ -54,6 +54,9 @@ export default function Home() {
   }, []);
 
 
+  
+
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -66,6 +69,29 @@ export default function Home() {
     });
 
     const hiddenElements = document.querySelectorAll('.hidden1');
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    // Cleanup
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+    };
+
+  }, []);
+
+  useEffect(() => {
+    console.log("useEffect")
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('doodlePath');
+        } else {
+          entry.target.classList.remove('doodlePath');
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll('.doodle');
 
     hiddenElements.forEach((el) => observer.observe(el));
 
@@ -193,11 +219,11 @@ export default function Home() {
 
     {/*-------------------- EMOTION CARD SECTION ------------------------------- */}
     {/* <section  className="space-y-16 py-[50px] border-2 border-red-500"> */}
-    <div className="flex">
+    <div className="flex w-full relative ">
         <div className="hidden1 text-slide-in">
         <h1 className=" mx-[30px] text-6xl font-semibold">Does this sound familiar...</h1>
         </div>
-        <div className="doodlePath">
+        <div className="doodlePath doodle">
         <Image
               src="/assets/doodle3.png"
               alt="Logo"

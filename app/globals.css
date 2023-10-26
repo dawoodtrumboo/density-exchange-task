@@ -303,3 +303,30 @@ animation: x-axis 1s linear forwards;
     opacity: 1;
   }
 }
+
+.doodlePath{
+ 
+  animation: move 2s ease-out forwards;
+}
+.doodle{
+  transform: translate(1000px)
+  rotate(-50deg);
+  top: 30px;
+  position: absolute;
+}
+
+
+@keyframes move {
+  0%{
+  transform: translate(1000px)
+  rotate(-50deg);
+  top: 30px;
+   
+  }
+  100%{
+  transform: translate(720px)
+  rotate(-10deg);
+  top: -10px;
+
+  }
+}

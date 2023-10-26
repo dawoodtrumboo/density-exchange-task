@@ -47,7 +47,7 @@ export default function PhoneFrame(){
       useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting ) {
+            if(entry.isIntersecting ) {
               entry.target.classList.add('scale-up');
             } else {
               entry.target.classList.remove('scale-up');
@@ -68,7 +68,7 @@ export default function PhoneFrame(){
   
     let iconStyles = { color: "red" };
     return (
-        <div  className=" w-[50%] h-[80%] flex items-center justify-center">
+        <div  className="w-[50%] h-[80%] flex items-center justify-center">
         {/* Parent of Dashed Circle */}
       <div  className="absolute h-[500px] w-[500px]">
         {/* Dashed Circle Starts Here */}

@@ -6,6 +6,10 @@
     font-size: 15px;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .borderBox{
     float:left;
     background-image: linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);
@@ -32,6 +36,7 @@ background-repeat: repeat-y;
     border-image-slice: 1;
     padding: 40px; /* Add padding as needed */
   }
+
   
 
  /* width */
@@ -50,7 +55,158 @@ background-repeat: repeat-y;
     border-radius:10px;
   }
   
-  /* Handle on hover */
+
   #custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+
+
+  .scale-up {
+  scale: 30%;
+  rotate: 8deg;
+  position: absolute;
+  left: -80;
+  top: -150px;
+  transform-origin: center;
+  animation: scaleUpAnimation 1s forwards;
+  }
+  
+  @keyframes scaleUpAnimation {
+    0% {
+      scale: 30%;
+      rotate: 8deg;
+      transform: translate(-80px, -150px);
+    }
+    100% {
+     scale: 100%;
+     rotate: 0deg;
+      transform: translate(-90px, -30px);
+    }
+  }
+
+  @keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(370deg); /* Rotate to 370 degrees halfway through */
+    }
+    100% {
+      transform: rotate(360deg); /* Rotate back to 360 degrees at the end */
+    }
+  }
+  
+  .box {
+    animation: rotateAnimation 2s forwards;
+    transform-origin: center;
+  }
+
+
+  /* Rotating object 1 */
+.rotating-object {
+  animation: rAnimation 2s forwards;
+  transform-origin: center;
+}
+
+@keyframes rAnimation {
+  0% {
+    transform: rotate(150deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}
+
+/* Rotating object 2 */
+.rotating-object2 {
+  animation: rAnimation2 2s forwards;
+  transform-origin: center;
+}
+
+@keyframes rAnimation2 {
+  0% {
+    transform: rotate(150deg);
+  }
+  50% {
+    transform: rotate(154deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}
+
+/* Moving object */
+.moving-object {
+  animation: movingAnimation 2s forwards;
+}
+
+@keyframes movingAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Scale object */
+.scale-object {
+  animation: scaleAnimation 2s forwards;
+  transform-origin: center;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.text-slide-in {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-slide-in p, .text-slide-in h1 {
+  position: relative;
+  left: -100%;
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    left: -100%;
+  
+  }
+  100% {
+    left: 0;
+
+  }
+}
+
+
+.scroll-point {
+  transition: opacity 0.3s ease;
+  opacity: 0.5;
+}
+
+.scroll-point.active {
+  opacity: 1;
+}
+
+
+
+

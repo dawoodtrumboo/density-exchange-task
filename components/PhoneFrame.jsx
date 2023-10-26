@@ -77,7 +77,7 @@ export default function PhoneFrame(){
           <div className="absolute -top-14">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={100}
             height={10}
             priority
@@ -88,7 +88,7 @@ export default function PhoneFrame(){
           <div className="absolute -right-10">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={100}
             height={10}
             priority
@@ -99,7 +99,7 @@ export default function PhoneFrame(){
           <div className="absolute -bottom-[50px]">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={100}
             height={10}
             // priority
@@ -110,7 +110,7 @@ export default function PhoneFrame(){
           <div className="absolute left-12 bottom-[65px] rotate-[130deg]">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={30}
             height={10}
             // priority
@@ -121,7 +121,7 @@ export default function PhoneFrame(){
           <div className="absolute right-12 bottom-[70px] rotate-[30deg]">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={30}
             height={10}
             priority
@@ -132,7 +132,7 @@ export default function PhoneFrame(){
           <div className="absolute right-12 top-[70px] rotate-[310deg]">
             <Image
             src="/assets/doodle3.png"
-            alt="Doodle"
+            alt="Doodle&quot;"
             width={30}
             height={10}
             priority
@@ -186,7 +186,7 @@ export default function PhoneFrame(){
                   <div className="flex h-[20px] w-[20px] items-center justify-center overflow-hidden rounded-[4px]">
                       <Image
                         src="/assets/logo.jpg"
-                        alt="Logo"
+                        alt="Logo&quot;"
                         width={60}
                         height={60}
                         priority
@@ -250,7 +250,7 @@ export default function PhoneFrame(){
               <div className="overflow-hidden">
                   <Image
                     src="/assets/doodle2.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={20}
                     priority
@@ -272,7 +272,7 @@ export default function PhoneFrame(){
                 <div className="shadow-md rounded-[10px] overflow-hidden w-[160px]">
                   <Image
                     src="/assets/doodle1.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={30}
                     priority
@@ -294,7 +294,7 @@ export default function PhoneFrame(){
               <div className="overflow-hidden">
                   <Image
                     src="/assets/doodle2.png"
-                    alt="doodleimage"
+                    alt="doodleimage&quot;"
                     width={400}
                     height={20}
                     priority
